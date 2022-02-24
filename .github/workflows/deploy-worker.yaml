@@ -61,6 +61,7 @@ jobs:
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2.7.0
+      working-directory: ./ql-worker
       with:
         context: .
         push: true
@@ -68,7 +69,6 @@ jobs:
         secret: id=SSHKEYPLUS,src=./sshkey
         cache-from: type=gha
         cache-to: type=gha,mode=max
-      working-directory: ./ql-worker
 
     - name: Deploy to Cloud Run
       run: |-
