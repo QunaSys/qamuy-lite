@@ -22,7 +22,7 @@ RUN mkdir /root/.ssh && \
     git config --global url."git@github.com:".insteadOf https://github.com/
 
 COPY ./pyproject.toml ./poetry.lock /
-RUN --mount=type=secret,id=SSHKEYPLUS,dst=/root/.ssh/id_rsa \
+RUN --mount=type=secret,id=SSHKEY,dst=/root/.ssh/id_rsa \
     poetry install --no-root
 
 ENV PORT 8080
