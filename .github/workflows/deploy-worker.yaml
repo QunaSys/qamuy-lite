@@ -65,8 +65,7 @@ jobs:
         context: ./ql-worker
         push: true
         tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
-        secret-files:
-          - SSHKEY=./sshkey
+        secret-files: SSHKEY=./sshkey
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
