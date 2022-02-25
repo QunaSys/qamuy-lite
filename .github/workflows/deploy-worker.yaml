@@ -61,9 +61,8 @@ jobs:
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2.7.0
-      working-directory: ./ql-worker
       with:
-        context: .
+        context: ./ql-worker
         push: true
         tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
         secret: id=SSHKEYPLUS,src=./sshkey
