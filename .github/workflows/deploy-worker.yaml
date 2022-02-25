@@ -54,7 +54,6 @@ jobs:
       run: |
         echo "${{ secrets.QS_MACHINE_KEY }}" >> ./sshkey
       shell: bash
-      working-directory: ./ql-worker
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1

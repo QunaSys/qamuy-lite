@@ -10,13 +10,13 @@ on:
     branches: [ main ]
 
 jobs:
-  test-sip-worker:
+  test-ql-worker:
     
     runs-on: ubuntu-latest
     
     defaults:
       run:
-        working-directory: sip-worker
+        working-directory: ql-worker
     
     steps:
     - uses: actions/checkout@v2
@@ -47,4 +47,4 @@ jobs:
         poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        poetry run pytest sip_worker
+        poetry run pytest ql_worker
