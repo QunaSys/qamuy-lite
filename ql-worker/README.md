@@ -11,27 +11,28 @@ poetry install
 ## How to run API server locally
 
 ```
-poetry run python lq_worker/main.py
+poetry run uvicorn ql_worker.main:app --reload
 ```
 
 ## How to build a docker image
 
 ```
-docker build -t ql-worker  --secret id=SSHKEYPLUS,src=$HOME/.ssh/id_rsa .   
+docker build -t ql-worker  --secret id=SSHKEYPLUS,src=$HOME/.ssh/id_rsa .
 ```
 
-For M1 mac 
+For M1 mac
 
 It is needed `--platform linux/amd64` option.
 ```
-docker build -t ql-worker  --secret id=SSHKEYPLUS,src=$HOME/.ssh/id_rsa --platform linux/amd64 .   
+docker build -t ql-worker  --secret id=SSHKEYPLUS,src=$HOME/.ssh/id_rsa --platform linux/amd64 .
 ```
 ## For developers
 
 ### Testing
 
 ```
-python client.py test.json
+./post_local.sh vqe <path_to_input_json>
+./post.sh vqe <path_to_input_json>
 ```
 
 ### Deployment to GCP

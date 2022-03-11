@@ -1,0 +1,23 @@
+{
+    "input": {
+        "molecule": {
+            "atoms": [
+                {
+                    "species": "H",
+                    "coordinates": [0, 0, 0]
+                },
+                {
+                    "species": "H",
+                    "coordinates": [0, 0, 0.74]
+                }
+            ],
+            "basis": "sto-3g",
+            "charge": 0,
+            "multiplicity": 1
+        },
+        "ansatz": {
+            "type": "SYMMETRY_PRESERVING",
+            "steps": 4
+        }
+    }
+}

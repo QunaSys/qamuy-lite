@@ -6,12 +6,12 @@ authors = ["Ryosuke Imai <imai@qunasys.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Flask = "^2.0.2"
-gunicorn = "20.1.0"
-google-cloud-datastore = "^2.4.0"
 qamuy-core = {git = "https://github.com/QunaSys/qamuy-core.git", rev = "8d7018c"}
 qamuy-base = {git = "https://github.com/QunaSys/qamuy-base.git", rev = "b1b2b5b"}
 pyscf = "1.7.6"
+fastapi = "^0.75.0"
+uvicorn = "^0.17.5"
+gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.8b0"
