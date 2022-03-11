@@ -14,12 +14,12 @@ app = FastAPI()
 PRODUCTION_ENV = os.environ.get("PRODUCTION_ENV", False)
 
 
-@app.get("/")
-async def hello():
-    return {"Hello, World!"}
+@app.get("/health")
+async def health_check():
+    return {"ok"}
 
 
-@app.post("/vqe/")
+@app.post("/vqe")
 async def vqe(req: VqeRequest) -> VqeResponse:
     status, result = vqe_executor(req.input)
     return VqeResponse(status=status, result=result)

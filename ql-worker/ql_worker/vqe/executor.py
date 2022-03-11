@@ -40,7 +40,7 @@ def run_vqe(qamuy_hamiltonian, n_qubits: int, n_electrons: int) -> float:
     ansatz = SymmetryPreservingReal(n_qubits, depth=n_qubits)
     # initial parameters preparation
     param_size = ansatz.parameter_count
-    init_params = 2 * np.pi * np.random.random(param_size)
+    init_params = 0.01 * 2 * np.pi * np.random.random(param_size)
 
     backend = QulacsVectorSimulator()
     n_shots = 1_000_000
@@ -52,8 +52,8 @@ def run_vqe(qamuy_hamiltonian, n_qubits: int, n_electrons: int) -> float:
         "disp": True,
         "maxiter": 2048,
         # "maxfev": 2048,
-        "ftol": 1e-6,
-        # "gtol": 1e-6,
+        # "ftol": 1e-6,
+        "gtol": 1e-3,
     }
 
     vqe_cost_function = VqeCostFunction(
